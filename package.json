@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon -r dotenv/config index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/philyb1701/music-library#readme",
   "devDependencies": {
+    "dotenv": "^16.0.0",
     "eslint": "^8.14.0",
     "eslint-plugin-react": "^7.29.4",
     "nodemon": "^2.0.16"
