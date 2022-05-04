@@ -19,10 +19,10 @@ require('dotenv').config({
 // destructure environment variables from process.env
 const { DB_PASSWORD, DB_NAME, DB_USER, DB_HOST, DB_PORT } = process.env;
 
-// This asynchronous function will run before app
+// This asyncronous function will run before app
 const setUpDatabase = async () => {
   try {
-    //connect to the database
+    // connect to the database
     const db = await mysql.createConnection({
       host: DB_HOST,
       user: DB_USER,
@@ -30,15 +30,15 @@ const setUpDatabase = async () => {
       port: DB_PORT,
     });
 
-    //create the database if it doesn't already exist
+    // create the database if it doesn't already exist
     await db.query(`CREATE DATABASE IF NOT EXISTS ${DB_NAME}`);
     db.close();
   } catch (err) {
-    //if something goes wrong, console.log the error and the current environment variables
+    // if something goes wrong, console.log the error and the current environment variables
     console.log(
-      'Your environment variables might be wrong. Please double check .env file'
+      `Your environment variables might be wrong. Please double check .env file`
     );
-    console.log('Environment variables are:', {
+    console.log('Environment Variables are:', {
       DB_PASSWORD,
       DB_NAME,
       DB_USER,
@@ -49,5 +49,5 @@ const setUpDatabase = async () => {
   }
 };
 
-//run the async function
+// run the async function
 setUpDatabase();
