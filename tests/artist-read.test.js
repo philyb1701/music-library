@@ -49,7 +49,6 @@ describe('read artist', () => {
       });
     });
   });
-
   describe('/artist/:artistId', () => {
     describe('GET', () => {
       it('returns a single artist with the correct id', async () => {
@@ -57,7 +56,7 @@ describe('read artist', () => {
         const res = await request(app).get(`/artist/${expected.id}`).send();
 
         expect(res.status).to.equal(200);
-        expect(res.body).to.equal(expected);
+        expect(res.body).to.deep.equal(expected);
       });
 
       it('returns a 404 if the artist is not in the database', async () => {
